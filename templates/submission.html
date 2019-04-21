@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block styles %}
+<style>
+h2 {
+    font-family: Impact;
+}
+
+form {
+    margin: 10px;
+}
+
+small {
+    color: #f11111
+}
+
+.ip {
+        margin: 0px 0px 10px 10px;
+        width: 150px;
+    }
+
+input {
+        margin: 0px 0px 10px 20px;
+    }
+</style>
+{% endblock styles %}
+
+{% block content %}
+
+{% if name_error == "" and password1_error == "" and password2_error == "" and email_error == "" %}
+    <p>Thank you for signup Welcome, {{ name.title() }} !!</p>
+{% else %}
+<fieldset>
+    <legend>Register today!!!</legend>
+    <h2>User Sign Up</h2>
+    <form action="/submission" method="post">
+    <label class="ip">UserName: <input type="text" name="username" value="{{ name }}"/></label><br/>
+    {% if name_error != "" %}
+        <small>{{name_error}}<br/></small>
+    {% endif %}
+    <label class="ip">Password: <input type="password" name="password1"/></label><br/>
+    {% if password1_error != "" %}
+    <small>{{password1_error}}<br/></small>
+    {% endif %}
+    <label class="ip">Verify Password: <input type="password" name="password2"/></label><br/>
+    {% if password2_error != "" %}
+    <small>{{password2_error}}<br/></small>
+    {% endif %}
+    <label class="ip">Email (Optional):<input type="text" name="email" value="{{ email }}"/></label><br/>
+    {% if email_error != "" %}
+    <small>{{email_error}}<br></small>
+    {% endif %}
+    <label class="ip"><input type="submit" name="submit" value="Sign-up"/></label>
+    </form>
+</fieldset>
+{% endif %}
+{% endblock content %}

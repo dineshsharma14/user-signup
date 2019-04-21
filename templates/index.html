@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block styles %}
+<style>
+    h2 {
+        font-family: Impact;
+    }
+
+    form {
+        margin: 10px;
+    }
+
+    .ip {
+        margin: 0px 0px 10px 10px;
+        width: 150px;
+    }
+    input {
+        margin: 0px 0px 10px 20px;
+    }
+
+</style>
+{% endblock styles %}
+
+{% block content %}
+<fieldset>
+<legend>Register today!!!</legend>
+<h2>User Sign Up</h2>
+<form action="/submission" method="post">
+<label class="ip">User Name: <input type="text" name="username"/></label><br/>
+<label class="ip">Password: <input type="password" name="password1"/></label><br/>
+<label class="ip">Verify Password: <input type="password" name="password2"/></label><br/>
+<label class="ip">Email (Optional):<input type="text" name="email"/></label><br/>
+<label class="ip"><input type="submit" name="submit" value="Submit"/></label>
+</form>
+</fieldset>
+{% endblock content %}
